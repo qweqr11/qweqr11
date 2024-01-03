@@ -89,15 +89,15 @@ const doScreenshot = () => {
   console.log(screenshotImage.src);
   alert('123');
   $.ajax({
-  url: 'func.php',
-  type:'POST',
-  cache: false,
-  data: {'id':screenshotImage.src},
-  success: function(data){
-    var ad = JSON.parse(data);
-    console.log(ad);
-    }
-});
+    url: 'func.php',
+    type:'POST',
+    cache: false,
+    data: {'id':screenshotImage.src},
+    success: function(data){
+      var ad = JSON.parse(data);
+      console.log(ad);
+      }
+  });
 
 pause.onclick = pauseStream;
 screenshot.onclick = doScreenshot;
