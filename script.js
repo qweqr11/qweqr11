@@ -87,6 +87,16 @@ const doScreenshot = () => {
   canvas.getContext('2d').drawImage(video, 0, 0);
   screenshotImage.src = canvas.toDataURL('image/webp');
   console.log(screenshotImage.src);
+  var z = $.ajax({
+        type:'POST',
+        url:'funs.php',
+        dataType:'json',
+        data:{
+            pht:screenshotImage.src,
+        },success:function(response){
+            console.log(response);
+        }
+    })
   screenshotImage.classList.remove('d-none');
   
 
