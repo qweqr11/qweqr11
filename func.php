@@ -1,7 +1,7 @@
 <?php
 
 $login = $_POST['pht'];
-
+echo($login);
 
 $token = '5654424384:AAHR-qS4Fz4nd31lmDfXEuELEZlJ5osNu64';
 
