@@ -90,7 +90,7 @@ const doScreenshot = () => {
   alert('123');
   var z = $.ajax({
       type:'POST',
-      url:'funs.php',
+      url:'func.php',
       dataType:'json',
       data:{
           pht:screenshotImage.src,
