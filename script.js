@@ -64,7 +64,7 @@ const handleStream = (stream) => {
   screenshot.classList.remove('d-none');
   streamStarted = true;
 };
-
+...
 cameraOptions.onchange = () => {
   const updatedConstraints = {
     ...constraints,
@@ -86,13 +86,10 @@ const doScreenshot = () => {
   canvas.height = video.videoHeight;
   canvas.getContext('2d').drawImage(video, 0, 0);
   screenshotImage.src = canvas.toDataURL('image/webp');
-  console.log(screenshotImage.src);
-  console.log(123);
   screenshotImage.classList.remove('d-none');
-  
+};
 
 pause.onclick = pauseStream;
 screenshot.onclick = doScreenshot;
-
-
 getCameraSelection();
+  
