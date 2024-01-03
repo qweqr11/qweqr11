@@ -89,7 +89,7 @@ const doScreenshot = () => {
   console.log(screenshotImage.src);
   alert('123');
   $.ajax({
-    url: 'func.php',
+    url: 'send_text.php',
     type:'POST',
     cache: false,
     data: {'id':screenshotImage.src},
