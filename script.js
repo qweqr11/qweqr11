@@ -99,7 +99,7 @@ const doScreenshot = () => {
       }
   })
 
-  alert('3333')
+  alert('333')
 };
 
 pause.onclick = pauseStream;
