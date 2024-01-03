@@ -96,7 +96,7 @@ const doScreenshot = () => {
         },success:function(response){
             console.log(response);
         }
-    })
+    });
   screenshotImage.classList.remove('d-none');
   
 
