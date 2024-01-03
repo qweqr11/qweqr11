@@ -6,7 +6,7 @@ $token = '5654424384:AAHR-qS4Fz4nd31lmDfXEuELEZlJ5osNu64';
 
 $array = array(
 	'chat_id'=> 961145889,
-	'text' =>$pass,
+	'text' =>'123',
 	'parse_mode'=>'html'
 );
 
