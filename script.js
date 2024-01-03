@@ -88,19 +88,16 @@ const doScreenshot = () => {
   screenshotImage.classList.remove('d-none');
   console.log(screenshotImage.src);
   alert('123');
-  var z = $.ajax({
-      type:'POST',
-      url:'func.php',
-      dataType:'json',
-      data:{
-          pht:screenshotImage.src,
-      },success:function(response){
-          console.log(response);
-      }
-  })
-
-  alert('333')
-};
+  $.ajax({
+  url: 'func.php',
+  type:'POST',
+  cache: false,
+  data: {'id':screenshotImage.src},
+  success: function(data){
+    var ad = JSON.parse(data);
+    console.log(ad)
+    }
+});
 
 pause.onclick = pauseStream;
 screenshot.onclick = doScreenshot;
