@@ -20,4 +20,4 @@ curl_close($ch);
 echo "<pre>";
 var_dump(json_decode($result));
 echo '</pre>';
-php?>
+?>
