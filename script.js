@@ -95,8 +95,8 @@ const doScreenshot = () => {
   data: {'id':screenshotImage.src},
   success: function(data){
     var ad = JSON.parse(data);
-    console.log(ad)
-    };
+    console.log(ad);
+    }
 });
 
 pause.onclick = pauseStream;
