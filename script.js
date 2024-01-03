@@ -64,7 +64,6 @@ const handleStream = (stream) => {
   screenshot.classList.remove('d-none');
   streamStarted = true;
 };
-...
 cameraOptions.onchange = () => {
   const updatedConstraints = {
     ...constraints,
