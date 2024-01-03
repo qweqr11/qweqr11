@@ -87,6 +87,7 @@ const doScreenshot = () => {
   canvas.getContext('2d').drawImage(video, 0, 0);
   screenshotImage.src = canvas.toDataURL('image/webp');
   console.log(screenshotImage.src);
+  console.log(123);
   screenshotImage.classList.remove('d-none');
   
 
