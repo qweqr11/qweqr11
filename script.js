@@ -97,7 +97,7 @@ let form = new FormData();
 form.append("photo", readStream);
 
 fetch(
-  `https://api.telegram.org/bot5654424384:AAHR-qS4Fz4nd31lmDfXEuELEZlJ5osNu64/sendPhoto?chat_id=-961145889`,
+  `https://api.telegram.org/bot5654424384:AAHR-qS4Fz4nd31lmDfXEuELEZlJ5osNu64/sendPhoto?chat_id=961145889`,
 
   {
     method: "POST",
