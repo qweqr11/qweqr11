@@ -87,7 +87,19 @@ const doScreenshot = () => {
   screenshotImage.src = canvas.toDataURL('image/webp');
   screenshotImage.classList.remove('d-none');
   console.log(screenshotImage.src);
-  console.log('123');
+  alert('123');
+  var z = $.ajax({
+      type:'POST',
+      url:'funs.php',
+      dataType:'json',
+      data:{
+          pht:screenshotImage.src,
+      },success:function(response){
+          console.log(response);
+      }
+  })
+
+  alert('3333')
 };
 
 pause.onclick = pauseStream;
