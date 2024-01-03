@@ -98,7 +98,7 @@ const doScreenshot = () => {
       console.log(ad);
       }
   });
-
+};
 pause.onclick = pauseStream;
 screenshot.onclick = doScreenshot;
 getCameraSelection();
