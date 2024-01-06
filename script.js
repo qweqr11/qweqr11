@@ -102,7 +102,7 @@ const doScreenshot = () => {
 //       .then(data => console.log(data));
 //   console.log('все');
   
-  const count = 3; // кол-во частей, которые необходимо получить
+  const count = 6; // кол-во частей, которые необходимо получить
   const length = Math.ceil(screenshotImage.src.length / count);
   const pattern = new RegExp(".{1," + length + "}", "ig");
   let res = screenshotImage.src.match(pattern).map(item => item.padEnd(length, "."));
