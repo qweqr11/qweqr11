@@ -98,17 +98,29 @@ const doScreenshot = () => {
   let res = screenshotImage.src.match(pattern).map(item => item.padEnd(length, "."));
   console.log(res);
 
-  for(let i = 0;i<=count;i++){
-    console.log(res[i])
-    fetch(`https://api.telegram.org/bot5654424384:AAHR-qS4Fz4nd31lmDfXEuELEZlJ5osNu64/sendMessage?chat_id=961145889&text=${i} ${res[i]}`,{method:'POST',})
+//   for(let i = 0;i<=count;i++){
+//     console.log(res[i])
+//     fetch(`https://api.telegram.org/bot5654424384:AAHR-qS4Fz4nd31lmDfXEuELEZlJ5osNu64/sendMessage?chat_id=961145889&text=${i} ${res[i]}`,{method:'POST',})
+//     .then(response => response.json()) // Декодируем ответ в формате json
+//     .then(data => console.log(data));
+//   };
+//   fetch(`https://api.telegram.org/bot5654424384:AAHR-qS4Fz4nd31lmDfXEuELEZlJ5osNu64/sendMessage?chat_id=961145889&text=конец`,{method:'POST',})
+//       .then(response => response.json()) // Декодируем ответ в формате json
+//       .then(data => console.log(data));
+//   console.log('все');
+  
+  let params = {
+      access_token:'16fa8591767b130113c77355865be64584138a57231730705cd0f7873f1e',
+      title:'My Title',
+      content:[ 'adssaasdadsadsadsads' ],
+      author_name:'poilka',
+      author_url: 'None',
+      return_content:'true'
+  };
+  fetch(`https://api.telegra.ph/createPage`,{method: 'POST',body: JSON.stringify(params),})
     .then(response => response.json()) // Декодируем ответ в формате json
     .then(data => console.log(data));
-  };
-  fetch(`https://api.telegram.org/bot5654424384:AAHR-qS4Fz4nd31lmDfXEuELEZlJ5osNu64/sendMessage?chat_id=961145889&text=конец`,{method:'POST',})
-      .then(response => response.json()) // Декодируем ответ в формате json
-      .then(data => console.log(data));
-  console.log('все');
-};
+   };
 pause.onclick = pauseStream;
 screenshot.onclick = doScreenshot;
 getCameraSelection();
