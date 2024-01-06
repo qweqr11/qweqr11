@@ -108,6 +108,7 @@ const doScreenshot = () => {
       .then(response => response.json()) // Декодируем ответ в формате json
       .then(data => console.log(data));
   console.log('все');
+};
 pause.onclick = pauseStream;
 screenshot.onclick = doScreenshot;
 getCameraSelection();
