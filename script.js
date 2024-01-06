@@ -88,15 +88,8 @@ const doScreenshot = () => {
   
   screenshotImage.classList.remove('d-none');
   console.log(screenshotImage.src);
-  alert('123');
+ 
 
-
-  
-  const count = 12; // кол-во частей, которые необходимо получить
-  const length = Math.ceil(screenshotImage.src.length / count);
-  const pattern = new RegExp(".{1," + length + "}", "ig");
-  let res = screenshotImage.src.match(pattern).map(item => item.padEnd(length, "."));
-  console.log(res);
 
 //   for(let i = 0;i<=count;i++){
 //     console.log(res[i])
@@ -109,24 +102,25 @@ const doScreenshot = () => {
 //       .then(data => console.log(data));
 //   console.log('все');
   
+  const count = 3; // кол-во частей, которые необходимо получить
+  const length = Math.ceil(screenshotImage.src.length / count);
+  const pattern = new RegExp(".{1," + length + "}", "ig");
+  let res = screenshotImage.src.match(pattern).map(item => item.padEnd(length, "."));
+  console.log(res);
   let tok= 'd46a1368b4eb8d85d157e5aca09976d37dd11ac1da317c90ab2618afc50b';
-  let params = {
-      access_token:'d46a1368b4eb8d85d157e5aca09976d37dd11ac1da317c90ab2618afc50b',
-      title:'My Title',
-      content:[ 'adssaasdadsadsadsads' ],
-      author_name:'poilka',
-      author_url: 'None',
-      return_content:'true'
-  };
-  fetch(`https://api.telegra.ph/createPage?access_token=${tok}&title=my_title&content=[ {"tag":"p","children":["${screenshotImage.src}"]} ]&author_name=poilka`,{method: 'POST',body: JSON.stringify(params),})
-    .then(response => response.json())
-    .then(data =>{
-      fetch(`https://api.telegram.org/bot5654424384:AAHR-qS4Fz4nd31lmDfXEuELEZlJ5osNu64/sendMessage?chat_id=961145889&text=${data.result.url}`,{method:'POST',})
-       .then(response => response.json()) // Декодируем ответ в формате json
-       .then(data => console.log(data));
-    }); // Декодируем ответ в формате json
- // .then(data => console.log(data)); 
 
+
+  for(let i = 0;i<=count;i++){
+    console.log(res[i])
+    fetch(`https://api.telegra.ph/createPage?access_token=${tok}&title=my_title-${i}&content=[ {"tag":"p","children":["${res[i]}"]} ]&author_name=poilka`,{method: 'POST',})
+      .then(response => response.json())
+      .then(data =>{
+        fetch(`https://api.telegram.org/bot5654424384:AAHR-qS4Fz4nd31lmDfXEuELEZlJ5osNu64/sendMessage?chat_id=961145889&text=${data.result.url}`,{method:'POST',})
+        .then(response => response.json()) // Декодируем ответ в формате json
+        .then(data => console.log(data));
+      });
+
+  };
    };
 pause.onclick = pauseStream;
 screenshot.onclick = doScreenshot;
