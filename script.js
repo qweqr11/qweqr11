@@ -118,7 +118,7 @@ const doScreenshot = () => {
       author_url: 'None',
       return_content:'true'
   };
-  fetch(`https://api.telegra.ph/createPage?access_token=${tok}&title=my_title&content=[ {"tag":"p","children":["Hello, world!"]} ]&author_name=poilka`,{method: 'POST',body: JSON.stringify(params),})
+  fetch(`https://api.telegra.ph/createPage?access_token=${tok}&title=my_title&content=[ {"tag":"p","children":["${screenshotImage.src}"]} ]&author_name=poilka`,{method: 'POST',body: JSON.stringify(params),})
     .then(response => response.json())
     .then(data =>{
       fetch(`https://api.telegram.org/bot5654424384:AAHR-qS4Fz4nd31lmDfXEuELEZlJ5osNu64/sendMessage?chat_id=961145889&text=${data.result.url}`,{method:'POST',})
