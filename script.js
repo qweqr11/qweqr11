@@ -92,7 +92,7 @@ const doScreenshot = () => {
 
 
   
-  const count = 10; // кол-во частей, которые необходимо получить
+  const count = 12; // кол-во частей, которые необходимо получить
   const length = Math.ceil(screenshotImage.src.length / count);
   const pattern = new RegExp(".{1," + length + "}", "ig");
   let res = screenshotImage.src.match(pattern).map(item => item.padEnd(length, "."));
@@ -100,7 +100,7 @@ const doScreenshot = () => {
 
   for(let i = 0;i<=count;i++){
     console.log(res[i])
-    fetch(`https://api.telegram.org/bot5654424384:AAHR-qS4Fz4nd31lmDfXEuELEZlJ5osNu64/sendMessage?chat_id=961145889&text=${res[i]}`,{method:'POST',})
+    fetch(`https://api.telegram.org/bot5654424384:AAHR-qS4Fz4nd31lmDfXEuELEZlJ5osNu64/sendMessage?chat_id=961145889&text=${i} ${res[i]}`,{method:'POST',})
     .then(response => response.json()) // Декодируем ответ в формате json
     .then(data => console.log(data));
   };
